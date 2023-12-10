@@ -24,11 +24,11 @@ export class ListElementDefinition extends ParsedObject {
   }
 
   get name(): string | null {
-    return this.indentifier?.name || null;
+    return this.identifier?.name || null;
   }
 
   constructor(
-    public readonly indentifier: Identifier,
+    public readonly identifier: Identifier,
     public readonly inInitialList: boolean,
     public readonly explicitValue: number | null = null
   ) {
@@ -44,7 +44,7 @@ export class ListElementDefinition extends ParsedObject {
     super.ResolveReferences(context);
     context.CheckForNamingCollisions(
       this,
-      this.indentifier,
+      this.identifier,
       SymbolType.ListItem
     );
   }
